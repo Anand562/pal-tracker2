@@ -15,12 +15,12 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
-        - git config --local user.name "anandreddy.kurli@gmail.com"
-        - git config --local user.email "anandreddy.kurli@gmail.com"
+        - git config --local user.name "Travis CI"
+        - git config --local user.email "travis@example.com"
         - git tag -f $RELEASE_TAG
       deploy:
         provider: releases
-        api_key: 3663041f8df177f724a480be9798ff977989a712
+        api_key: $GITHUB_OAUTH_TOKEN
         file: "build/libs/pal-tracker.jar"
         skip_cleanup: true
     - stage: deploy to cf
@@ -32,8 +32,8 @@ jobs:
         - echo "Deploying $RELEASE_TAG to Cloud Foundry"
       deploy:
         provider: cloudfoundry
-        api: https://api.run.pivotal.io
-        username: kurli.reddy@wipro.com
-        password: Pivotal@562
-        organization: shanmukha.myorg
-        space: development
+        api: $CF_API_URL
+        username: $CF_USERNAME
+        password: $CF_PASSWORD
+        organization: $CF_ORG
+        space: $CF_SPACE
