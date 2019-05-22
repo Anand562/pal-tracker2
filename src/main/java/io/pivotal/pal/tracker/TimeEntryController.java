@@ -63,7 +63,7 @@ public class TimeEntryController {
         }
         return new ResponseEntity<TimeEntry>(responseTimeEntry, status);
     }
-/*   */
+/*  a */
     @DeleteMapping("{id}")
     public ResponseEntity<TimeEntry> delete(@PathVariable Long id)
     {
