@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# comment
 set -e
 
 app_name="${1:-pal-tracker}"
