@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#simply
+
 set -e
 
 app_name="${1:-pal-tracker}"
@@ -36,7 +36,7 @@ function main() {
 
     echo "Running migration ..."
 
-    1-*/flyway -url="jdbc:mysql://127.0.0.1:63306/$db_name" \
+    flyway-*/flyway -url="jdbc:mysql://127.0.0.1:63306/$db_name" \
         -locations=filesystem:"$script_dir"/databases/tracker \
         -user="$db_username" \
         -password="$db_password" \
